@@ -10,8 +10,8 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 variables:
-  app: 'hello-world-java' 
-  image: 'itpi2015/hello-world-java'
+  app: 'claim-reporter-pwa-poc' 
+  image: 'itpi2015/claim-reporter-pwa-poc'
   tag: '$(build.buildId)'
   dockerId: 'ycaglayan'
   dockerPass: 'clf4wavo'

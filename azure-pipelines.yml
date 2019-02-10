@@ -11,7 +11,7 @@ pool:
 
 variables:
   app: 'hello-world-java' 
-  imageName: 'itpi2015/hello-world-java'
+  image: 'itpi2015/hello-world-java'
   tag: '$(build.buildId)'
   dockerId: 'ycaglayan'
   dockerPass: 'clf4wavo'

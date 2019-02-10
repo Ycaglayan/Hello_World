@@ -3,22 +3,26 @@
 # Add steps that use Docker Compose, tag images, push to a registry, run an image, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
+trigger:
+- master
+
 pool:
-vmImage: 'Ubuntu 16.04'
+  vmImage: 'Ubuntu-16.04'
 
 variables:
-app: 'claim-reporter-app'
-image: '$(dockerNamespace)/hello-world-java'
-tag: '$(build.buildId)'
+  app: 'hello-world-java' 
+  imageName: '$(dockerNamespace)/hello-world-java'
+  tag: '$(build.buildId)'
 
 steps:
 - script: docker login -u $(dockerId) -p $(dockerPass)
-displayName: 'docker login'
+  displayName: 'docker login)'
 - script: docker build -t $(image) $(app)
-displayName: 'docker build $(app)'
+  displayName: 'docker build $(app)'
 - script: docker tag $(image) $(image):$(tag)
-displayName: 'docker tag $(image):$(tag)'
+  displayName: 'docker tag $(image):$(tag)'
 - script: docker push $(image):$(tag)
-displayName: 'docker push $(image):$(tag)'
+  displayName: 'docker push $(image):$(tag)'
 - script: docker push $(image):latest
-displayName: 'docker push $(image):latest'
+  displayName: 'docker push $(image):latest'
+

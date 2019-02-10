@@ -10,13 +10,12 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 variables:
-  dockerNamespace:'itpi2015'
   app: 'hello-world-java' 
-  imageName: '$(dockerNamespace)/hello-world-java'
+  imageName: 'itpi2015/hello-world-java'
   tag: '$(build.buildId)'
   dockerId: 'ycaglayan'
   dockerPass: 'clf4wavo'
-
+  dockerNamespace: 'itpi2015'
 
 steps:
 - script: docker login -u $(dockerId) -p $(dockerPass)
